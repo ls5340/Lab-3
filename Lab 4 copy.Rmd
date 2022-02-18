@@ -5,9 +5,15 @@ output:
     toc: true
 ---
 
+```{r, message=FALSE}
+library(tidyverse)
+library(dslabs)
+```
+
 ```{r}
 gapminder %>%
   mutate(group=ifelse(continent=="Europe" | region=="Northern America","West","Rest"))
+  head(5)
 ```
 
 <br>

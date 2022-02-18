@@ -62,7 +62,7 @@ gapminder %>% as_tibble() %>%
     - region (geographical region)
 
 <br>
-<br>
+<br>zz
 
 ## Exercise 1: Use data transformation and visualization to answer the following questions in breakout rooms (45 min)
 
@@ -78,11 +78,6 @@ We provide one possible solution for each question, but we highly recommend that
 
 <br>
 <br>
-
-```{r}
-gapminder %>%
-  mutate(group=ifelse(continent=="Europe" | region=="Northern America","West","Rest"))
-```
 
 ### Question 1: Which five countries had the largest population size in 2015 (the most recent year for which population sizes are included in this dataset), and how has the population sizes in those countries changes since 1960?
 
