@@ -5,26 +5,11 @@ output:
     toc: true
 ---
 
-```{r, message=FALSE}
-library(tidyverse)
-library(dslabs)
-```
-
-```{r}
-gapminder %>%
-  mutate(group=ifelse(continent=="Europe" | region=="Northern America","West","Rest"))
-  head(5)
-```
-
-<br>
-
 ## Goals for today
 
 1. Continue to practice data visualization with `ggplot2`
-
-
+ 
 2. Continue to practice data transformation with `dplyr`
-
 
 3. Integrate 1) and 2) to explore the `gapminder` dataset
 
@@ -55,6 +40,11 @@ gapminder %>% as_tibble() %>%
 
 ```
 
+```{r, include=FALSE}
+gapminder %>%
+  mutate(group=ifelse(continent=="Europe" | region=="Northern America","West","Rest"))
+  head(5)
+```
 <br>
 
 * As a reminder, to get familar with this dataset, you might want to use functions like `View()`, `dim()`, `colnames()` , and `?`. You will see that the dataset includes the following variables:
@@ -94,22 +84,6 @@ We provide one possible solution for each question, but we highly recommend that
 *One possible solution*
 <details>
   <summary>click to expand</summary>
-
-```{r}
-# Extract a vector with the 5 countries with the largest population size
-top5_countries <- gapminder %>%
-  filter(year == 2015) %>% 
-  arrange(-population) %>% 
-  select(country) %>% 
-  head(5) %>% 
-  .$country
-
-gapminder %>% 
-  filter(country %in% top5_countries) %>% 
-  ggplot() +
-  geom_line(mapping = aes(x = year, y = population, color = country))
-
-```
 
 ```{r}
 # Extract a vector with the 5 countries with the largest population size
